@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
+
+<title>Course project of Getting and Cleaning Data from Coursera</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+
+
+
+
+</head>
+
+<body>
+<h1>Course project of Getting and Cleaning Data from Coursera</h1>
+
+<p>I started with setting working directory on my local computer. Next step is reading all the data with function read.table() and changing their dimensional with dim() function.</p>
+
+<p>I changed a little an order of task for my convenience. So first I have made a step 4 (adding features names) with function colnames(), then I merged a descriptive activity names to name the activities in the data sets (train and test). I also added logical variable &ldquo;test&rdquo; (1 - observation from test subset, 0 observation from train subset). Then I had two subset X.train and X.test with the same coloumns so I merged them with function 
+rbind() and called it my.frame. The dimensions of my.frame is  10299 rows and  564 columns.</p>
+
+<p>Next step was to add subject variable into my.frame and extracts only the measurements on the mean and standard deviation for each measurement. I used function grep() to find the names of variables which contains &ldquo;mean()&rdquo; and &ldquo;std()&rdquo;. I called the final data as tidy.data.</p>
+
+<p>At the end I created new tidy data set with the average of each variable for each activity and each subject. The function that I used to split is split(). Then I used lapply() to calculating average of each variable for each activity and each subject. The last step was to write new tidy data called tidy.data.with.averages into txt file.</p>
+
+</body>
+
+</html>
+
